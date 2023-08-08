@@ -1,18 +1,18 @@
-import cv2
-# import numpy as np
+# import cv2
+# # import numpy as np
 
-# cap=cv2.VideoCapture(0)
+# # cap=cv2.VideoCapture(0)
 
-# while True:
-#     ret,frame=cap.read()
+# # while True:
+# #     ret,frame=cap.read()
 
-#     cv2.imshow('Our live video ',frame)
+# #     cv2.imshow('Our live video ',frame)
 
-#     if cv2.waitKey(1) == 13:
-#         break 
+# #     if cv2.waitKey(1) == 13:
+# #         break 
 
-# cap.release()
-# cap.destroyAllWindows()
+# # cap.release()
+# # cap.destroyAllWindows()
 
 # def sketch(image):
 #     img_gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
@@ -37,21 +37,38 @@ import cv2
 # cap.destroyAllWindows()
 
 
-cap=cv2.VideoCapture('/home/kanja-koduki/computer_vision/Working with Video/videos/drummer.mp4')
+# # cap=cv2.VideoCapture('/home/kanja-koduki/computer_vision/Working with Video/videos/drummer.mp4')
 
-while cap.isOpened():
+# # while cap.isOpened():
     
-    ret,frame=cap.read()
+# #     ret,frame=cap.read()
 
-    if not ret:
-        print("Video stopped")
-        break
-    cv2.imshow('Video',frame)
+# #     if not ret:
+# #         print("Video stopped")
+# #         break
+# #     cv2.imshow('Video',frame)
 
-    if cv2.waitKey(1) == ord('q'):
+# #     if cv2.waitKey(1) == ord('q'):
+# #         break
+# # cap.release()
+# # cap.destroyAllWindows()
+
+    
+
+import cv2 
+
+# Our Free Test RSTP Link
+# You can configure your CCTV IPTV Cameras to output a RSTP Stream
+cap = cv2.VideoCapture("rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov")
+
+while(1):
+    ret, frame = cap.read()
+
+    cv2.imshow('RTSP Stream', frame)
+    
+    if cv2.waitKey(1) == 13: #13 is the Enter Key
         break
+        
+# Release camera and close windows
 cap.release()
-cap.destroyAllWindows()
-
-    
-
+cv2.destroyAllWindows()      
