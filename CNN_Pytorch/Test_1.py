@@ -140,3 +140,4 @@ class Net (nn.Module):
 
 net=Net()
 net.to(device)
+print(net)
