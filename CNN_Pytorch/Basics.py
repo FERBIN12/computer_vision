@@ -37,18 +37,61 @@ testset = torchvision.datasets.MNIST('mnist',
 
 print(trainset.data[5])
 
-import cv2
-import numpy as np
-from matplotlib import pyplot as plt
+# import cv2
+# import numpy as np
+# from matplotlib import pyplot as plt
 
-# Define our imshow function 
-def imshow(title="", image = None, size = 6):
-    w, h = image.shape[0], image.shape[1]
-    aspect_ratio = w/h
-    plt.figure(figsize=(size * aspect_ratio,size))
-    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-    plt.title(title)
+# # Define our imshow function 
+# def imshow(title="", image = None, size = 6):
+#     w, h = image.shape[0], image.shape[1]
+#     aspect_ratio = w/h
+#     plt.figure(figsize=(size * aspect_ratio,size))
+#     plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+#     plt.title(title)
+#     plt.show()
+
+# # image=trainset.data[5].numpy()
+# # imshow("The sample is",image)
+
+# # Let's view the 50 first images of the MNIST training dataset
+# import matplotlib.pyplot as plt
+
+# figure = plt.figure()
+# num_of_images = 50 
+
+# for index in range(1, num_of_images + 1):
+#     plt.subplot(5, 10, index)
+#     plt.axis('off')
+#     plt.imshow(trainset.data[index], cmap='gray_r')
+
+# Prepare train and test loader
+trainloader = torch.utils.data.DataLoader(trainset,
+                                           batch_size = 128,
+                                           shuffle = True,
+                                           num_workers = 0)
+
+testloader = torch.utils.data.DataLoader(testset,
+                                          batch_size = 128,
+                                          shuffle = False,
+                                          num_workers = 0)
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# function to show an image
+def imshow(img):
+    img = img / 2 + 0.5     # unnormalize
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1, 2, 0)))
     plt.show()
 
-image=trainset.data[5].numpy()
-imshow("The sample is",image)
+
+# get some random training images
+dataiter = iter(trainloader)
+images, labels = dataiter.next()
+
+# show images
+imshow(torchvision.utils.make_grid(images))
+
+# print labels
+print(''.join('%1s' % labels[j].numpy() for j in range(128)))
