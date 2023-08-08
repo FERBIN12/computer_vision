@@ -34,3 +34,21 @@ testset = torchvision.datasets.MNIST('mnist',
                                      download = True,
                                      transform = transform)
 
+
+print(trainset.data[5])
+
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+# Define our imshow function 
+def imshow(title="", image = None, size = 6):
+    w, h = image.shape[0], image.shape[1]
+    aspect_ratio = w/h
+    plt.figure(figsize=(size * aspect_ratio,size))
+    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    plt.title(title)
+    plt.show()
+
+image=trainset.data[5].numpy()
+imshow("The sample is",image)
