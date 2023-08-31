@@ -1,8 +1,9 @@
 ## now we are gonna test Alexnet in CFIR10 dataset
 
 from tensorflow.keras.datasets import cifar10
-from tensorflow.keras.layers import Dense,Conv2D,Flatten,MaxPooling2D,Activation
+from tensorflow.keras.layers import Dense,Conv2D,Flatten,MaxPooling2D,Activation,BatchNormalization,Dropout,ZeroPadding2D
 from tensorflow.keras.optimizers import Adadelta
+from tensorflow.keras.models import Sequential
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.regularizers import l2
 (x_train,y_train),(x_test,y_test) = cifar10.load_data()
