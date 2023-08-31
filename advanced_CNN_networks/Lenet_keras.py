@@ -1,8 +1,6 @@
 
-from tensorflow.keras.preprocessing.image import ImageDataGenerator 
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense,Dropout,Activation,Flatten,Conv2D,MaxPooling2D,ZeroPadding2D
-from tensorflow.keras.regularizers import l2
+from tensorflow.keras.layers import Dense,Activation,Flatten,Conv2D,MaxPooling2D
 from tensorflow.keras.datasets import mnist
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.optimizers import Adadelta
