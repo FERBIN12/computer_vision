@@ -1,3 +1,4 @@
+#there are errors which I didnt figureout yet
 import dload
 from tensorflow.keras.models import Model,Sequential
 from tensorflow.keras.layers import Input,Convolution2D,MaxPooling2D,ZeroPadding2D,Dense,Dropout,Activation,Flatten
