@@ -57,7 +57,7 @@ model.add(Convolution2D(2622, (1, 1)))
 model.add(Flatten())
 model.add(Activation('softmax'))
 
-dload.save('https://drive.google.com/file/d/1CPSeum3HpopfomUEK1gybeuIVoeJT_Eo/view?usp=sharing','/home/kanja-koduki/cv_test')
+dload.save('https://drive.google.com/file/d/1CPSeum3HpopfomUEK1gybeuIVoeJT_Eo/view?usp','/home/kanja-koduki/cv_test')
 # as we have a pre trained model for this one we use the h5 files from the documentation and load them
 
 model.load_weights('/home/kanja-koduki/cv_test/vgg_face_weights.h5')
